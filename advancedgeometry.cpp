@@ -6,13 +6,14 @@ int main(){
 	int Solido;
 
         cout << "Enter the number of the solid which you want to calculate area and volume" << endl;
-        cout << "1. Parallelepiped or cube" << endl;
-        cout << "2. Cylinder" << endl;
-        cout << "3. Cone" << endl;
-        cout << "4. Pyramid" <<endl;
+        cout << "1. Parallelepiped" << endl;
+        cout << "2. Cube" << endl;
+        cout << "3. Cylinder" << endl;
+        cout << "4. Cone" << endl;
+        cout << "5. Pyramid" <<endl;
         cin >> Solido;
 
-	if(Solido == 1){         // Parallelepiped or cube
+	if(Solido == 1){         // Parallelepiped
 
         float X,Y,Z,A0,A1,A2,Afull,V;
 
@@ -33,7 +34,21 @@ int main(){
         cout << "Volume = " << V << endl;
 	}
 
-	else if(Solido == 2){             // Cylinder
+	else if(Solido == 2){            // Cube
+
+        float X,Afull,V;
+
+        cout << "Enter the side of the cube" << endl;
+        cin >> X;
+
+        V = X*X*X;
+        Afull = X*X*6;
+
+        cout << "Area = " << Afull << endl;
+        cout << "Volume = " << V << endl;
+	}
+
+	else if(Solido == 3){             // Cylinder
 
         float R,h,C,A1,A0,Afull,V;
 
@@ -52,13 +67,13 @@ int main(){
         cout << "Volume = " << V << endl;
 	}
 
-    else if(Solido == 3){              // Cone
+    else if(Solido == 4){              // Cone
 
         float R,h,a,A0,A1,Afull,V;
 
-        cout << "Enter the radius of the cone" <<endl;
+        cout << "Enter the radius of the cone" << endl;
         cin >> R;
-        cout << "Enter the height of the cone" <<endl;
+        cout << "Enter the height of the cone" << endl;
         cin >> h;
 
         a = sqrt(R*R+h*h);
@@ -67,12 +82,11 @@ int main(){
         Afull = A0+A1;
         V =A0*h/3;
 
-        cout << "Area = "<<Afull<<endl;
-        cout << "Volume = "<<V<<endl;
-
+        cout << "Area = " << Afull << endl;
+        cout << "Volume = " << V << endl;
     }
 
-    else if(Solido == 4){                 // Pyramid
+    else if(Solido == 5){                 // Pyramid
 
         float X,Y,h,A0,A1,A2,Afull,a1,a2,V;
 
@@ -93,6 +107,5 @@ int main(){
 
         cout << "Area = "<< Afull << endl;
         cout << "Volume = "<< V << endl;
-
     }
 }
