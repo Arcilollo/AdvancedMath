@@ -2,6 +2,8 @@
 #include <cmath>
 using namespace std;
 
+#define PG 3.14
+
 int main(){
 	int Solido;
 
@@ -11,17 +13,18 @@ int main(){
         cout << "3. Cylinder" << endl;
         cout << "4. Cone" << endl;
         cout << "5. Pyramid" <<endl;
+        cout << "6. Sphere" <<endl;
         cin >> Solido;
 
 	if(Solido == 1){         // Parallelepiped
 
         float X,Y,Z,A0,A1,A2,Afull,V;
 
-        cout << "Enter the X" << endl;
+        cout << "Enter the side 1 of parallelepiped" << endl;
         cin >> X;
-        cout << "Enter the Y" << endl;
+        cout << "Enter the side 2 of parallelepiped" << endl;
         cin >> Y;
-        cout << "Enter the Z" << endl;
+        cout << "Enter the side 3 of parallelepiped" << endl;
         cin >> Z;
 
         V = X*Y*Z;
@@ -57,8 +60,8 @@ int main(){
         cout << "Enter the height of the cylinder" << endl;
         cin >> h;
 
-        A0 = R*R*3.14;
-        C = R*2*3.14;
+        A0 = R*R*PG;
+        C = R*2*PG;
         A1 = C*h;
         Afull = A0*2+A1;
         V = A0*h;
@@ -77,8 +80,8 @@ int main(){
         cin >> h;
 
         a = sqrt(R*R+h*h);
-        A0 = R*R*3.14;
-        A1 = 3.14*R*a;
+        A0 = R*R*PG;
+        A1 = PG*R*a;
         Afull = A0+A1;
         V =A0*h/3;
 
@@ -90,11 +93,11 @@ int main(){
 
         float X,Y,h,A0,A1,A2,Afull,a1,a2,V;
 
-        cout << "Enter the side 1 of the base" <<endl;
+        cout << "Enter the side 1 of the base" << endl;
         cin >> X;
-        cout << "Enter the side 2 of the base" <<endl;
+        cout << "Enter the side 2 of the base" << endl;
         cin >> Y;
-        cout << "Enter the height of the pyramid" <<endl;
+        cout << "Enter the height of the pyramid" << endl;
         cin >> h;
 
         A0 = X*Y;
@@ -105,7 +108,21 @@ int main(){
         A2 = Y*a2;
         Afull = A0+A1+A2;
 
-        cout << "Area = "<< Afull << endl;
-        cout << "Volume = "<< V << endl;
+        cout << "Area = " << Afull << endl;
+        cout << "Volume = " << V << endl;
+    }
+
+    else if(Solido == 6){                   //Sphere
+
+        float R,Afull,V;
+
+        cout << "Enter the radius of the sphere" << endl;
+        cin >> R;
+
+        V = 4*PG/3*R*R*R;
+        Afull = 4*PG*R*R;
+
+        cout << "Area = " << Afull << endl;
+        cout << "Volume = " << V << endl;
     }
 }
