@@ -146,6 +146,7 @@ int main(){
             cout << "2. Square" << endl;
             cout << "3. Equilateral triangle" << endl;
             cout << "4. Isosceles triangle" << endl;
+            cout << "5. Rectangle triangle" << endl;
             cin >> figura;
 
         if(figura == 1){        // rectangle
@@ -204,6 +205,22 @@ int main(){
             x = X/2;
             L = sqrt(x*x+Y*Y);
             P = X+L+L;
+
+            cout << "Area = " << Afull << endl;
+            cout << "Perimeter = " << P << endl;
+        }
+        else if(figura == 5){          // Rectangle triangle
+
+            float X,Y,I,Afull,P;
+
+            cout << "Insert the side 1 of the rectangle triangle" << endl;
+            cin >> X;
+            cout << "Insert the side 2 of the rectangle triangle" << endl;
+            cin >> Y;
+
+            Afull = X*Y/2;
+            I = sqrt(X*X+Y*Y);
+            P = X+Y+I;
 
             cout << "Area = " << Afull << endl;
             cout << "Perimeter = " << P << endl;
