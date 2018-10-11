@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -144,6 +145,7 @@ int main(){
             cout << "1. Rectangle" << endl;
             cout << "2. Square" << endl;
             cout << "3. Equilateral triangle" << endl;
+            cout << "4. Isosceles triangle" << endl;
             cin >> figura;
 
         if(figura == 1){        // rectangle
@@ -174,7 +176,7 @@ int main(){
             cout << "Area = " << Afull << endl;
             cout << "Perimeter = " << P << endl;
         }
-        if(figura == 3){        // Equilateral triangle
+        else if(figura == 3){        // Equilateral triangle
 
             float X,Y,Afull,P;
 
@@ -185,6 +187,23 @@ int main(){
 
             Afull = X*Y/2;
             P = X*3;
+
+            cout << "Area = " << Afull << endl;
+            cout << "Perimeter = " << P << endl;
+        }
+        else if(figura == 4){        // Isosceles triangle
+
+            float X,x,Y,L,Afull,P;
+
+            cout << "Insert the base of isosceles triangle" << endl;
+            cin >> X;
+            cout << "Insert the height of the isosceles triangle" << endl;
+            cin >> Y;
+
+            Afull = X*Y/2;
+            x = X/2;
+            L = sqrt(x*x+Y*Y);
+            P = X+L+L;
 
             cout << "Area = " << Afull << endl;
             cout << "Perimeter = " << P << endl;
