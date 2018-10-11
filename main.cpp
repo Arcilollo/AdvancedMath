@@ -190,4 +190,5 @@ int main(){
             cout << "Perimeter = " << P << endl;
         }
     }
+    return 0;
 }
