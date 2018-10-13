@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -11,7 +10,9 @@ int main(){
 
         cout << "1. 3D figures" << endl;
         cout << "2. 2D figures" << endl;
+        cout << "3. Specials" << endl;
         cin >> type;
+        cout << endl;
 
 
     if(type == 1){             // 3D Solid
@@ -25,6 +26,7 @@ int main(){
             cout << "5. Pyramid" <<endl;
             cout << "6. Sphere" <<endl;
             cin >> Solido;
+            cout << endl;
 
         if(Solido == 1){         // Parallelepiped
 
@@ -137,7 +139,7 @@ int main(){
         }
 
     }
-    else if(type == 2) {         // 2D Figures
+    else if(type == 2){        // 2D Figures
 
             int figura;
 
@@ -148,6 +150,7 @@ int main(){
             cout << "4. Isosceles triangle" << endl;
             cout << "5. Rectangle triangle" << endl;
             cin >> figura;
+            cout << endl;
 
         if(figura == 1){        // rectangle
 
@@ -225,6 +228,43 @@ int main(){
             cout << "Area = " << Afull << endl;
             cout << "Perimeter = " << P << endl;
         }
+    }
+    else if(type == 3){        // specials
+
+            int special;
+
+            cout << "1. Pythagorean theorem (with 2 side)" << endl;
+            cout << "2. Pythagorean theorem (with hypotenuse and 1 side)" << endl;
+            cin >> special;
+            cout << endl;
+
+            if(special == 1){     //Pythagorean 2 side
+
+                float X,Y,I;
+
+                cout << "Enter the side 1" << endl;
+                cin >> X;
+                cout << "Enter the side 2" << endl;
+                cin >> Y;
+
+                I = sqrt(X*X+Y*Y);
+
+                cout << "Hypotenuse = " << I <<endl;
+            }
+
+            else if(special == 2){    //Pythagorean side hypotenuse
+
+                float X,Y,I;
+
+                cout << "Enter the side 1" << endl;
+                cin >> X;
+                cout << "Enter the Hypotenuse" << endl;
+                cin >> I;
+
+                Y = sqrt(I*I-X*X);
+
+                cout << "Side 2 = " << Y <<endl;
+            }
     }
     return 0;
 }
