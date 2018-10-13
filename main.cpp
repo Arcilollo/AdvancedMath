@@ -149,6 +149,8 @@ int main(){
             cout << "3. Equilateral triangle" << endl;
             cout << "4. Isosceles triangle" << endl;
             cout << "5. Rectangle triangle" << endl;
+            cout << "6. Circle" << endl;
+            cout << "7. Rectangle trapeze" << endl;
             cin >> figura;
             cout << endl;
 
@@ -228,8 +230,40 @@ int main(){
             cout << "Area = " << Afull << endl;
             cout << "Perimeter = " << P << endl;
         }
+        else if(figura == 6){            // Circle
+
+            float R,C,Afull;
+
+            cout << "Enter the radius of the circle" << endl;
+            cin >> R;
+
+            C = R*2*PG;
+            Afull = R*R*PG;
+
+            cout << "Area = " << Afull << endl;
+            cout << "Circumference = " << C << endl;
+        }
+        else if(figura == 7){            // Rectangular trapeze
+
+            float X,Y,H,Z,L,Afull,P,V;
+
+            cout << "Enter the major base" << endl;
+            cin >> X;
+            cout << "Enter the minor base" << endl;
+            cin >> Y;
+            cout << "Enter the height" << endl;
+            cin >> H;
+
+            Afull = X*Y*H/2;
+            Z = X-Y;
+            L = sqrt(H*H+Z*Z);
+            P = X+Y+L+H;
+
+            cout << "Area = " << Afull << endl;
+            cout << "Perimeter = " << P << endl;
+        }
     }
-    else if(type == 3){        // specials
+    else if(type == 3){        // Specials
 
             int special;
 
