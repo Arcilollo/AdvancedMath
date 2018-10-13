@@ -266,5 +266,5 @@ int main(){
                 cout << "Side 2 = " << Y <<endl;
             }
     }
-    return 0;
+    system("pause");
 }
