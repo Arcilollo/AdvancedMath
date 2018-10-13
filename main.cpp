@@ -3,6 +3,8 @@
 using namespace std;
 
 #define PG 3.14
+#define NFP 0.688
+#define NFH 0.866
 
 int main(){
 
@@ -16,6 +18,7 @@ int main(){
 
 
     if(type == 1){             // 3D Solid
+
             int Solido;
 
             cout << "Enter the number of the solid which you want to calculate area and volume" << endl;
@@ -151,6 +154,9 @@ int main(){
             cout << "5. Rectangle triangle" << endl;
             cout << "6. Circle" << endl;
             cout << "7. Rectangle trapeze" << endl;
+            cout << "8. Isosceles trapeze" << endl;
+            cout << "9. Pentagon" << endl;
+            cout << "10. Hexagon" << endl;
             cin >> figura;
             cout << endl;
 
@@ -245,7 +251,7 @@ int main(){
         }
         else if(figura == 7){            // Rectangular trapeze
 
-            float X,Y,H,Z,L,Afull,P,V;
+            float X,Y,H,Z,L,Afull,P;
 
             cout << "Enter the major base" << endl;
             cin >> X;
@@ -262,6 +268,53 @@ int main(){
             cout << "Area = " << Afull << endl;
             cout << "Perimeter = " << P << endl;
         }
+        else if (figura == 8){          // Isosceles trapeze
+
+            float X,Y,H,Z,L,Afull,P;
+
+            cout << "Enter the major base" << endl;
+            cin >> X;
+            cout << "Enter the minor base" << endl;
+            cin >> Y;
+            cout << "Enter the height" << endl;
+            cin >> H;
+
+            Afull = X*Y*H/2;
+            Z = (X-Y)/2;
+            L = sqrt(H*H+Z*Z);
+            P = X+Y+L+H;
+
+            cout << "Area = " << Afull << endl;
+            cout << "Perimeter = " << P << endl;
+        }
+        else if (figura == 9){           // Pentagon
+
+            float X,P,Afull,a;
+
+            cout << "Enter the side of pentagon" << endl;
+            cin >> X;
+
+            P = X*5;
+            a = X*NFP;
+            Afull = P*a/2;
+
+            cout << "Area = " << Afull << endl;
+            cout << "Perimeter = " << P << endl;
+        }
+        else if (figura == 10){           // Hexagon
+
+            float X,P,Afull,a;
+
+            cout << "Enter the side of hexagon" << endl;
+            cin >> X;
+
+            P = X*6;
+            a = X*NFH;
+            Afull = P*a/2;
+
+            cout << "Area = " << Afull << endl;
+            cout << "Perimeter = " << P << endl;
+        }
     }
     else if(type == 3){        // Specials
 
@@ -272,33 +325,32 @@ int main(){
             cin >> special;
             cout << endl;
 
-            if(special == 1){     //Pythagorean 2 side
+        if(special == 1){     //Pythagorean 2 side
 
-                float X,Y,I;
+            float X,Y,I;
 
-                cout << "Enter the side 1" << endl;
-                cin >> X;
-                cout << "Enter the side 2" << endl;
-                cin >> Y;
+            cout << "Enter the side 1" << endl;
+            cin >> X;
+            cout << "Enter the side 2" << endl;
+            cin >> Y;
 
-                I = sqrt(X*X+Y*Y);
+            I = sqrt(X*X+Y*Y);
 
-                cout << "Hypotenuse = " << I <<endl;
-            }
+            cout << "Hypotenuse = " << I <<endl;
+        }
+        else if(special == 2){    //Pythagorean side hypotenuse
 
-            else if(special == 2){    //Pythagorean side hypotenuse
+            float X,Y,I;
 
-                float X,Y,I;
+            cout << "Enter the side 1" << endl;
+            cin >> X;
+            cout << "Enter the Hypotenuse" << endl;
+            cin >> I;
 
-                cout << "Enter the side 1" << endl;
-                cin >> X;
-                cout << "Enter the Hypotenuse" << endl;
-                cin >> I;
+            Y = sqrt(I*I-X*X);
 
-                Y = sqrt(I*I-X*X);
-
-                cout << "Side 2 = " << Y <<endl;
-            }
+            cout << "Side 2 = " << Y <<endl;
+        }
     }
     system("pause");
 }
