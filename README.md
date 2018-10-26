@@ -1,3 +1,3 @@
-# advancedgeometry
+# AdvancedMath
 
-this is a symple program for 3d and 2d figures
+this is a simple program for math
