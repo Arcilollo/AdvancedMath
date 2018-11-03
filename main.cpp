@@ -6,7 +6,8 @@ enum Types : int
     Figures3D = 1,
     Figures2D,
     Special,
-    NumTypes = Special,
+    Time,
+    NumTypes = Time,
 };
 
 enum Solid : int
@@ -32,14 +33,20 @@ enum Figures : int
     IsoscelesTrapeze,
     Pentagon,
     Hexagon,
-    NumFigures = Hexagon,
+    Rhombus,
+    NumFigures = Rhombus,
 };
-
 enum Specials : int
 {
     PitagoraTwo = 1,
     PitagoraOne,
     NumSpecials = PitagoraOne,
+};
+enum Time : int
+{
+    TimePlus = 1,
+    TimeMinus,
+    NumTime = TimeMinus,
 };
 
 using PARALLELEPIPED = struct {
@@ -107,23 +114,34 @@ using HEXAGON = struct {
     double X, P, Afull, a;
 };
 
+using RHOMBUS = struct {
+    double X, Y, L, P, Afull;
+};
+
 using TRIANGLE = struct { // Triangle, for Pythagoras
     double X, Y, I;
 };
 
+using TIME = struct { // Unused
+    int H0, M0 , H1, M1, H2, M2;
+};
+
+
 int main() {
 
-    static const double PG = 3.141;
+    static const double PG = 3.14159;
     static const double NFP = 0.688;
-    static const double NFH = 0.866;
+    static const double NFH = sqrt(3)/2;
 
     int type = 0;
 
     do
     {
-    std::cout << "1. 3D figures" << std::endl;
-    std::cout << "2. 2D figures" << std::endl;
-    std::cout << "3. Specials" << std::endl;
+    std::cout << "Enter type of calculations you want to do\n";
+    std::cout << "1. 3D figures\n";
+    std::cout << "2. 2D figures\n";
+    std::cout << "3. Specials\n";
+    std::cout << "4. Time calculations UNFINISHED\n";
     std::cin >> type;
     std::cout << std::endl;
     } while ((type <= 0) || (type > Types::NumTypes));
@@ -135,15 +153,15 @@ int main() {
 
         do
         {
-        std::cout << "Enter the number of the solid which you want to calculate area and volume" << std::endl;
-        std::cout << "1. Parallelepiped" << std::endl;
-        std::cout << "2. Cube" << std::endl;
-        std::cout << "3. Cylinder" << std::endl;
-        std::cout << "4. Cone" << std::endl;
-        std::cout << "5. Pyramid" << std::endl;
-        std::cout << "6. Sphere" << std::endl;
+        std::cout << "Enter the number of the solid which you want to calculate area and volume\n";
+        std::cout << "1. Parallelepiped\n";
+        std::cout << "2. Cube\n";
+        std::cout << "3. Cylinder\n";
+        std::cout << "4. Cone\n";
+        std::cout << "5. Pyramid\n";
+        std::cout << "6. Sphere\n";
         std::cin >> solid;
-        std::cout << std::endl;
+        std::cout << "\n";
         } while ((solid <= 0) || (solid > Solid::NumSolid));
 
         switch (solid)
@@ -153,19 +171,19 @@ int main() {
 
             do
             {
-                std::cout << "Enter the side 1 of parallelepiped" << std::endl;
+                std::cout << "Enter the side 1 of parallelepiped\n";
                 std::cin >> pa.X;
             } while (pa.X <= 0.0);
 
             do
             {
-                std::cout << "Enter the side 2 of parallelepiped" << std::endl;
+                std::cout << "Enter the side 2 of parallelepiped\n";
                 std::cin >> pa.Y;
             } while (pa.Y <= 0.0);
 
             do
             {
-                std::cout << "Enter the side 3 of parallelepiped" << std::endl;
+                std::cout << "Enter the side 3 of parallelepiped\n";
                 std::cin >> pa.Z;
             } while (pa.Z <= 0.0);
 
@@ -185,7 +203,7 @@ int main() {
 
             do
             {
-            std::cout << "Enter the side of the cube" << std::endl;
+            std::cout << "Enter the side of the cube\n";
             std::cin >> cb.X;
             } while (cb.X <= 0.0);
 
@@ -202,13 +220,13 @@ int main() {
 
             do
             {
-            std::cout << "Enter the radius of the cylinder" << std::endl;
+            std::cout << "Enter the radius of the cylinder\n";
             std::cin >> cy.R;
             } while (cy.R <= 0.0);
 
             do
             {
-            std::cout << "Enter the height of the cylinder" << std::endl;
+            std::cout << "Enter the height of the cylinder\n";
             std::cin >> cy.h;
             } while (cy.h <= 0.0);
 
@@ -228,13 +246,13 @@ int main() {
 
             do
             {
-                std::cout << "Enter the radius of the cone" << std::endl;
+                std::cout << "Enter the radius of the cone\n";
                 std::cin >> co.R;
             } while (co.R <= 0.0);
 
             do
             {
-                std::cout << "Enter the height of the cone" << std::endl;
+                std::cout << "Enter the height of the cone\n";
                 std::cin >> co.h;
             } while (co.h <= 0.0);
 
@@ -255,19 +273,19 @@ int main() {
 
             do
             {
-                std::cout << "Enter the side 1 of the base" << std::endl;
+                std::cout << "Enter the side 1 of the base\n";
                 std::cin >> py.X;
             } while (py.X <= 0.0);
 
             do
             {
-            std::cout << "Enter the side 2 of the base" << std::endl;
+            std::cout << "Enter the side 2 of the base\n";
             std::cin >> py.Y;
             } while (py.Y <= 0.0);
 
             do
             {
-                std::cout << "Enter the height of the pyramid" << std::endl;
+                std::cout << "Enter the height of the pyramid\n";
                 std::cin >> py.h;
             } while (py.h <= 0.0);
 
@@ -290,7 +308,7 @@ int main() {
 
             do
             {
-                std::cout << "Enter the radius of the sphere" << std::endl;
+                std::cout << "Enter the radius of the sphere\n";
                 std::cin >> sp.R;
             } while (sp.R <= 0.0);
 
@@ -309,19 +327,20 @@ int main() {
 
         do
         {
-            std::cout << "Enter the number of the figure which you want to calculate area and perimeter" << std::endl;
-            std::cout << "1. Rectangle" << std::endl;
-            std::cout << "2. Square" << std::endl;
-            std::cout << "3. Equilateral triangle" << std::endl;
-            std::cout << "4. Isosceles triangle" << std::endl;
-            std::cout << "5. Rectangle triangle" << std::endl;
-            std::cout << "6. Circle" << std::endl;
-            std::cout << "7. Rectangle trapeze" << std::endl;
-            std::cout << "8. Isosceles trapeze" << std::endl;
-            std::cout << "9. Pentagon" << std::endl;
-            std::cout << "10. Hexagon" << std::endl;
+            std::cout << "Enter the number of the figure which you want to calculate area and perimeter\n";
+            std::cout << "1. Rectangle\n";
+            std::cout << "2. Square\n";
+            std::cout << "3. Equilateral triangle\n";
+            std::cout << "4. Isosceles triangle\n";
+            std::cout << "5. Rectangle triangle\n";
+            std::cout << "6. Circle\n";
+            std::cout << "7. Rectangle trapeze\n";
+            std::cout << "8. Isosceles trapeze\n";
+            std::cout << "9. Pentagon\n";
+            std::cout << "10. Hexagon\n";
+            std::cout << "11. Rhombus\n";
             std::cin >> figure;
-            std::cout << std::endl;
+            std::cout << "\n";
         } while ((figure <= 0) || (figure > Figures::NumFigures));
 
         switch (figure)
@@ -332,13 +351,13 @@ int main() {
 
             do
             {
-                std::cout << "Insert the side 1 of the rectangle" << std::endl;
+                std::cout << "Insert the side 1 of the rectangle\n";
                 std::cin >> re.X;
             } while (re.X <= 0.0);
 
             do
             {
-                std::cout << "Insert the side 2 of the rectangle" << std::endl;
+                std::cout << "Insert the side 2 of the rectangle\n";
                 std::cin >> re.Y;
             } while (re.Y <= 0.0);
 
@@ -355,7 +374,7 @@ int main() {
 
             do
             {
-                std::cout << "Insert the side of the square" << std::endl;
+                std::cout << "Insert the side of the square\n";
                 std::cin >> sq.X;
             } while (sq.X <= 0.0);
 
@@ -372,13 +391,13 @@ int main() {
 
             do
             {
-                std::cout << "Insert the base of equilateral triangle" << std::endl;
+                std::cout << "Insert the base of equilateral triangle/n";
                 std::cin >> et.X;
             } while (et.X <= 0.0);
 
             do
             {
-                std::cout << "Insert the height of the equilateral triangle" << std::endl;
+                std::cout << "Insert the height of the equilateral triangle\n";
                 std::cin >> et.Y;
             } while (et.Y <= 0.0);
 
@@ -395,13 +414,13 @@ int main() {
 
             do
             {
-                std::cout << "Insert the base of isosceles triangle" << std::endl;
+                std::cout << "Insert the base of isosceles triangle\n";
                 std::cin >> it.X;
             } while (it.X <= 0.0);
 
             do
             {
-                std::cout << "Insert the height of the isosceles triangle" << std::endl;
+                std::cout << "Insert the height of the isosceles triangle\n";
                 std::cin >> it.Y;
             } while (it.Y <= 0.0);
 
@@ -420,13 +439,13 @@ int main() {
 
             do
             {
-                std::cout << "Insert the side 1 of the rectangle triangle" << std::endl;
+                std::cout << "Insert the side 1 of the rectangle triangle\n";
                 std::cin >> rt.X;
             } while (rt.X <= 0.0);
 
             do
             {
-                std::cout << "Insert the side 2 of the rectangle triangle" << std::endl;
+                std::cout << "Insert the side 2 of the rectangle triangle\n";
                 std::cin >> rt.Y;
             } while (rt.Y <= 0.0);
 
@@ -444,7 +463,7 @@ int main() {
 
             do
             {
-                std::cout << "Enter the radius of the circle" << std::endl;
+                std::cout << "Enter the radius of the circle\n";
                 std::cin >> ci.R;
             } while (ci.R <= 0.0);
 
@@ -461,19 +480,19 @@ int main() {
 
             do
             {
-                std::cout << "Enter the major base" << std::endl;
+                std::cout << "Enter the major base\n";
                 std::cin >> ret.X;
             } while (ret.X <= 0.0);
 
             do
             {
-                std::cout << "Enter the minor base" << std::endl;
+                std::cout << "Enter the minor base\n";
                 std::cin >> ret.Y;
             } while (ret.Y <= 0.0);
 
             do
             {
-                std::cout << "Enter the height" << std::endl;
+                std::cout << "Enter the height\n";
                 std::cin >> ret.H;
             } while (ret.H <= 0.0);
 
@@ -492,19 +511,19 @@ int main() {
 
             do
             {
-                std::cout << "Enter the major base" << std::endl;
+                std::cout << "Enter the major base\n";
                 std::cin >> ist.X;
             } while (ist.X <= 0.0);
 
             do
             {
-                std::cout << "Enter the minor base" << std::endl;
+                std::cout << "Enter the minor base\n";
                 std::cin >> ist.Y;
             } while (ist.Y <= 0.0);
 
             do
             {
-                std::cout << "Enter the height" << std::endl;
+                std::cout << "Enter the height\n";
                 std::cin >> ist.H;
             } while (ist.H <= 0.0);
 
@@ -523,7 +542,7 @@ int main() {
 
             do
             {
-                std::cout << "Enter the side of pentagon" << std::endl;
+                std::cout << "Enter the side of pentagon\n";
                 std::cin >> pe.X;
             } while (pe.X <= 0.0);
 
@@ -541,7 +560,7 @@ int main() {
 
             do
             {
-                std::cout << "Enter the side of hexagon" << std::endl;
+                std::cout << "Enter the side of hexagon\n";
                 std::cin >> he.X;
             } while (he.X <= 0.0);
 
@@ -552,6 +571,30 @@ int main() {
             std::cout << "Area = " << he.Afull << std::endl;
             std::cout << "Perimeter = " << he.P << std::endl;
             break;
+
+        case Figures::Rhombus:
+
+            RHOMBUS ro;
+
+            do
+            {
+                std::cout << "Insert the diagonal 1 of the rectangle\n";
+                std::cin >> ro.X;
+            } while (ro.X <= 0.0);
+
+            do
+            {
+                std::cout << "Insert the diagonal 2 of the rectangle\n";
+                std::cin >> ro.Y;
+            } while (ro.Y <= 0.0);
+
+            ro.Afull = ro.X * ro.Y / 2;
+            ro.L = sqrt( (ro.X / 2) * (ro.X / 2) + (ro.Y / 2) * (ro.Y / 2) );
+            ro.P = ro.L * 4;
+
+            std::cout << "Area = " << ro.Afull << std::endl;
+            std::cout << "Perimeter = " << ro.P << std::endl;
+            break;
         }
         break;
 
@@ -561,10 +604,10 @@ int main() {
 
         do
         {
-        std::cout << "1. Pythagorean theorem (with 2 side)" << std::endl;
-        std::cout << "2. Pythagorean theorem (with hypotenuse and 1 side)" << std::endl;
+        std::cout << "1. Pythagorean theorem (with 2 side)\n";
+        std::cout << "2. Pythagorean theorem (with hypotenuse and 1 side)\n";
         std::cin >> special;
-        std::cout << std::endl;
+        std::cout << "\n";
         } while ((special <= 0) || (special > Specials::NumSpecials));
 
         switch (special)
@@ -575,13 +618,13 @@ int main() {
 
             do
             {
-                std::cout << "Enter the side 1" << std::endl;
+                std::cout << "Enter the side 1\n";
                 std::cin >> t2.X;
             } while (t2.X <= 0.0);
 
             do
             {
-                std::cout << "Enter the side 2" << std::endl;
+                std::cout << "Enter the side 2\n";
                 std::cin >> t2.Y;
             } while (t2.Y <= 0.0);
 
@@ -595,15 +638,15 @@ int main() {
 
             do
             {
-                std::cout << "Enter the side 1" << std::endl;
+                std::cout << "Enter the side 1\n";
                 std::cin >> t1.X;
             } while (t1.X <= 0.0);
 
             do
             {
-                std::cout << "Enter the Hypotenuse" << std::endl;
+                std::cout << "Enter the Hypotenuse\n";
                 std::cin >> t1.I;
-            } while (t1.I <= 0.0);
+            } while (t1.I <= t1.X);
 
             t1.Y = sqrt(t1.I*t1.I - t1.X * t1.X);
 
