@@ -1,3 +1,3 @@
 # AdvancedMath
 
-this is a simple program for math
+AdvanceMath is a symple program for geometric calculations.
