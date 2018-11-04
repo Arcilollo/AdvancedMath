@@ -134,7 +134,11 @@ int main() {
     static const double NFH = sqrt(3)/2;
 
     int type = 0;
+    int restart = 0;
 
+
+    do
+    {
     do
     {
     std::cout << "Enter type of calculations you want to do\n";
@@ -391,7 +395,7 @@ int main() {
 
             do
             {
-                std::cout << "Insert the base of equilateral triangle/n";
+                std::cout << "Insert the base of equilateral triangle\n";
                 std::cin >> et.X;
             } while (et.X <= 0.0);
 
@@ -654,5 +658,13 @@ int main() {
         }
         break;
     }
+
+        std::cout << "\n" << "Restart the program?\n";
+        std::cout << "1. Yes\n";
+        std::cout << "2. No\n";
+        std::cin >> restart;
+        std::cout << "\n";
+    } while(restart==1);
+
     system("pause");
 }
