@@ -294,11 +294,11 @@ int main() {
             } while (py.h <= 0.0);
 
             py.A0 = py.X * py.Y;
-            py.V = py.A0 * py.h;
+            py.V = (py.A0 * py.h) / 3;
             py.a1 = sqrt((py.X / 2)*(py.X / 2) + py.h * py.h);
             py.a2 = sqrt((py.Y / 2)*(py.Y / 2) + py.h * py.h);
-            py.A1 = py.X * py.a1;
-            py.A2 = py.Y * py.a2;
+            py.A1 = (py.X * py.a1);
+            py.A2 = (py.Y * py.a2);
             py.Afull = py.A0 + py.A1 + py.A2;
 
             std::cout << "Area = " << py.Afull << std::endl;
@@ -664,7 +664,7 @@ int main() {
         std::cout << "2. No\n";
         std::cin >> restart;
         std::cout << "\n";
-    } while(restart==1);
+    } while(restart == 1);
 
     system("pause");
 }
