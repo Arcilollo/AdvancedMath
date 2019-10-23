@@ -6,8 +6,7 @@ enum Types : int {
   Figures3D = 1,
   Figures2D,
   Special,
-  Time,
-  NumTypes = Time,
+  NumTypes = Special,
 };
 
 enum Solid : int {
@@ -118,11 +117,6 @@ using TRIANGLE = struct { // Triangle, for Pythagoras
   double X, Y, I;
 };
 
-using TIME = struct { // Unused
-  int H0, M0 , H1, M1, H2, M2;
-};
-
-
 int main() {
 
   static const double PG = 3.14159;
@@ -139,7 +133,6 @@ int main() {
       std::cout << "1. 3D figures\n";
       std::cout << "2. 2D figures\n";
       std::cout << "3. Specials\n";
-      std::cout << "4. Time calculations UNFINISHED\n";
       std::cin >> type;
       std::cout << std::endl;
     } while ((type <= 0) || (type > Types::NumTypes));
